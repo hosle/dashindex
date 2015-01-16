@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>My DASH Demo</title>
+<title>HITsz Lab414b</title>
+</head>
+
+<body>
+<div id="main"> DASH Web App based Html5 Demo </div>
+<div> HITsz Lab414b <br />
+		<button id="btn1"> MPD Source1</button>
+		<br />
+		<button id="btn2"> MPD Source2</button>
+</div>
+</body>
+</html>
+<script>
+function playDash(){
+var elementID=this.id;
+var mpdurl;
+if( elementID=="btn1"){
+mpdurl="http://dash.edgesuite.net/envivio/dashpr/clear/Manifest.mpd"
+}else if(elementID=="btn2"){
+	mpdurl="http://www.digitalprimates.net/dash/streams/gpac/mp4-main-multi-mpd-AV-NBS.mpd"
+	
+}
+//window.location.href='index2.html';
+window.open("index2.html?inputStr="+mpdurl);//传入播放地址
+}
+
+document.addEventListener("DOMContentLoaded",function(){});
+document.getElementById("btn1").addEventListener("click",playDash,false);
+document.getElementById("btn2").addEventListener("click",playDash,false);
+</script>

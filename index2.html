@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Adaptive Streaming in HTML5</title>
+<!--DASH-AVC/265 reference implementation-->
+<script src="dash.all.js"></script>
+
+<script> 
+var request=
+	{
+		QueryString:function(val){
+        var uri=window.location.search;
+        var re=new RegExp(""+val+"=([^&?]*)","ig");
+          return ((uri.match(re))?(uri.match(re)[0].substr(val.length+1)):null);
+          }
+	}
+	
+ function setupVideo(){
+	 
+    var url =request.QueryString("inputStr");  
+	//alert(url);
+     var context = new Dash.di.DashContext(); 
+     var player = new MediaPlayer(context);             
+     player.startup();              
+     player.attachView(document.querySelector(".dash-video-palyer video")); 
+	 player.attachSource(url);
+ }
+</script>
+<style>
+video {
+	width: 80%;
+	height: 80%;
+}
+</style>
+</head>
+
+<body onload="setupVideo()">
+<div class="dash-video-palyer">
+		<video controls="true"></video>
+</div>
+</body>
+</html>
