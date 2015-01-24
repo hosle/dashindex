@@ -1,0 +1,1 @@
+mp4box -dash 2000 -frag 2000 -rap -frag-rap -segment-name sample_%s -url-template test.mp4

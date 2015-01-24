@@ -12,6 +12,8 @@
 		<button id="btn1"> MPD Source1</button>
 		<br />
 		<button id="btn2"> MPD Source2</button>
+        <br />
+		<button id="btn3"> Native MPD Source</button>
 </div>
 </body>
 </html>
@@ -24,7 +26,10 @@ mpdurl="http://dash.edgesuite.net/envivio/dashpr/clear/Manifest.mpd"
 }else if(elementID=="btn2"){
 	mpdurl="http://www.digitalprimates.net/dash/streams/gpac/mp4-main-multi-mpd-AV-NBS.mpd"
 	
+}else if(elementID=="btn3"){
+	mpdurl="source/test_dash.mpd"
 }
+
 //window.location.href='index2.html';
 window.open("index2.html?inputStr="+mpdurl);//传入播放地址
 }
@@ -32,4 +37,5 @@ window.open("index2.html?inputStr="+mpdurl);//传入播放地址
 document.addEventListener("DOMContentLoaded",function(){});
 document.getElementById("btn1").addEventListener("click",playDash,false);
 document.getElementById("btn2").addEventListener("click",playDash,false);
+document.getElementById("btn3").addEventListener("click",playDash,false);
 </script>
